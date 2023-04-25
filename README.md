@@ -1,35 +1,47 @@
-# React: Software Architecture
-This is the repository for the LinkedIn Learning course React: Software Architecture. The full course is available from [LinkedIn Learning][lil-course-url].
+# Sotware Architecture Using React, NodeJS, ExpressJS
 
-![React: Software Architecture][lil-thumbnail-url] 
+React application using server-side rendering [NodeJS](https://nodejs.org/) and [ExpressJS](https://expressjs.com/)
 
-Many React developers have intimate knowledge of the React API itself, but little familiarity with how to create real-world apps on a larger scale while dealing with various stakeholders. The heavy demands on web apps both from a customer and managerial perspective require that developers arrange software in an optimal way to ensure performance and maintainability. And in order to do this effectively, programmers must know how to create good software architecture. In this course, senior software developer Shaun Wassell shows you how, detailing what React developers need to know to keep their apps maintainable, performant, and compliant for the long haul. Delve into the basics of server-side rendering, state management, code splitting, and much more.
+## Description
 
-## Instructions
-This repository has branches for each of the videos in the course. You can use the branch pop up menu in github to switch to a specific branch and take a look at the course at that stage, or you can add `/tree/BRANCH_NAME` to the URL to go to the branch you want to access.
+Applying server-side rendering, state management architecture, data loading and WebSockets, code splitting, folder structure and naming conventions for a  maintainable, performant, and compliant web application.
 
-## Branches
-The branches are structured to correspond to the videos in the course. The naming convention is `CHAPTER#_MOVIE#`. As an example, the branch named `02_03` corresponds to the second chapter and the third video in that chapter. 
-Some branches will have a beginning and an end state. These are marked with the letters `b` for "beginning" and `e` for "end". The `b` branch contains the code as it is at the beginning of the movie. The `e` branch contains the code as it is at the end of the movie. The `main` branch holds the final state of the code when in the course.
+## Getting Started
 
-When switching from one exercise files branch to the next after making changes to the files, you may get a message like this:
+### Dependencies
 
-    error: Your local changes to the following files would be overwritten by checkout:        [files]
-    Please commit your changes or stash them before you switch branches.
-    Aborting
+* NodeJS - https://nodejs.org/
+* ExpressJS - https://expressjs.com/
 
-To resolve this issue:
-	
-    Add changes to git using this command: git add .
-	Commit changes using this command: git commit -m "some message"
+### Installing
+* Clone repository
+* Install dependencies
+```
+$ git clone <REPOURL>
+$ npm install
+```
+### Executing program
 
+* Server runs at http://localhost:8080:
+```
+$ npm run listen
+```
 
-### Instructor
+## Authored By
 
-Shaun Wassell 
-                                                     
+* [Octavio Sifuentes](https://priceymineral.github.io/)
 
-Check out my other courses on [LinkedIn Learning](https://www.linkedin.com/learning/instructors/shaun-wassell).
+## Version History
 
-[lil-course-url]: https://www.linkedin.com/learning/react-software-architecture
-[lil-thumbnail-url]: https://cdn.lynda.com/course/2884265/2884265-1628621779594-16x9.jpg
+* 0.3 (Upcoming)
+    * Styling
+* 0.2
+    * Server-Side Rendering
+* 0.1
+    * Initial Release
+
+## Acknowledgments
+
+Inspiration, code snippets, etc.
+* [Building a RESTful API with Node.js and Express](https://www.linkedin.com/learning/react-software-architecture/)
+* [A simple README.md template](https://gist.github.com/DomPizzie/7a5ff55ffa9081f2de27c315f5018afc)
