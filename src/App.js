@@ -1,43 +1,28 @@
-import React from 'react'
-import styled from 'styled-components'
-import { Switch, Route, Link } from 'react-router-dom'
-import { Home } from './pages/Home'
-import { About } from './pages/About'
-import { Articles } from './pages/Articles'
-
-const BigGreenHeading = styled.h1`
-	color: green;
-	font-size: 96px;
-`;
+import { React, useState, useEffect } from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
+import Card from './pages/Card'
+import dummyData from './dummyData.js'
 
 const App = () => {
-	constructor(props) {
-		super(props)
-		this.state = {
-			card: {},
-			cards: [],
-			buttonStatus: true,
-			x: 0
-		}
-	}
+	// const [card, setCard] = useState({})
+	const [cards, setCards] = useState([])
+	// const [buttonStatus, setButtonStatus] = useState(true)
+	const [x, setX] = useState(0)
+	console.log(cards)
 
-	// componentDidMount() {
-	// 	axios.get('/related-items')
-	// 		.then((response) => {
-	// 			this.setState({ cardObjectsArray: response.data[0].items })
-	// 		})
-	// 		.catch((err) => {
-	// 			console.log(err);
-	// 		})
-	// }
+	useEffect(() => {
+		setCards(dummyData[0].items)
+	}, [setCards])
 
-	nextCard() {
+	const nextCard = () => {
 		let rightButton = document.getElementsByClassName('carousel-btn--right')
 		rightButton[0].classList.add('carousel-btn-click')
 		let leftButton = document.getElementsByClassName('carousel-btn--left')
 		leftButton[0].classList.remove('carousel-btn-click')
 
-		this.setState({ x: -1012 })
+		// this.setState({ x: -1012 })
+		setX(-1012)
 
 		setTimeout(() => {
 			let leftButton = document.getElementsByClassName('carousel-btn--left')
@@ -48,13 +33,14 @@ const App = () => {
 		}, 400)
 	}
 
-	previousCard() {
+	const previousCard = () => {
 		let rightButton = document.getElementsByClassName('carousel-btn--right')
 		rightButton[0].classList.remove("carousel-btn-click")
 		let leftButton = document.getElementsByClassName('carousel-btn--left')
 		leftButton[0].classList.add("carousel-btn-click")
 
-		this.setState({ x: 0 })
+		// this.setState({ x: 0 })
+		setX(0)
 
 		setTimeout(() => {
 			let leftButton = document.getElementsByClassName('carousel-btn--left')
@@ -65,29 +51,26 @@ const App = () => {
 		}, 400)
 	}
 
-	render() {
-		const { cardObjectsArray, cardObject, buttonStatus, x } = this.state;
-		return (
-			<div id="product-recommendations">
-				<aside>
-					<div className="cards-slider">
-						<div className="people-also-liked">
-							People also liked
-						</div>
-						<div className="cards-slider-wrapper">
-							{cardObjectsArray.map((card, index) => <Card key={index} card={card} x={x} />)}
-							<button className="carousel-btn carousel-btn--left" onClick={() => this.previousCard()} >
-								<FontAwesomeIcon icon={faArrowLeft} size='xs' />
-							</button>
-							<button className="carousel-btn carousel-btn--right" onClick={() => this.nextCard()} >
-								<FontAwesomeIcon icon={faArrowRight} size='xs' />
-							</button>
-						</div>
+	return (
+		<div id="product-recommendations">
+			<aside>
+				<div className="cards-slider">
+					<div className="people-also-liked">
+						People also liked
 					</div>
-				</aside>
-			</div>
-		)
-	}
+					<div className="cards-slider-wrapper">
+						{cards.map((card, index) => <Card key={index} card={card} x={x} />)}
+						<button className="carousel-btn carousel-btn--left" onClick={() => previousCard()} >
+							<FontAwesomeIcon icon={faArrowLeft} size='xs' />
+						</button>
+						<button className="carousel-btn carousel-btn--right" onClick={() => nextCard()} >
+							<FontAwesomeIcon icon={faArrowRight} size='xs' />
+						</button>
+					</div>
+				</div>
+			</aside>
+		</div>
+	)
 }
 
 export default App
